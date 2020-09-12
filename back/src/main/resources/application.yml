@@ -1,0 +1,32 @@
+server:
+  port: 8081
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+
+app:
+  api-url-eleicao: /api/eleicao/2014/presidente
+  api-url-ibge: /api/ibge
+
+feign:
+  ibge:
+    localidades:
+      name: localidades
+      url: https://servicodados.ibge.gov.br/api/v1/localidades
+    malha:
+      name: malha
+      url: http://servicodados.ibge.gov.br/api/v2/malhas
+  hystrix:
+    enabled: true
