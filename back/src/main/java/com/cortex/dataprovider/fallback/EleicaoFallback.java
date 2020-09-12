@@ -1,7 +1,7 @@
 package com.cortex.dataprovider.fallback;
 
 import com.cortex.core.usecase.http.FallbackHttp;
-import com.cortex.dataprovider.feign.LocalidadeFeign;
+import com.cortex.dataprovider.feign.EleicaoFeign;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Slf4j
 @Component
-public class LocalidadeFallback implements LocalidadeFeign {
+public class EleicaoFallback implements EleicaoFeign {
 
     private final String mensagemFallback = "Dados indisponíveis momentaneamente!";
     private String metodoRequisitado = "Método requisitado {}";

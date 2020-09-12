@@ -1,20 +1,20 @@
 package com.cortex.core.usecase;
 
-import com.cortex.dataprovider.LocalidadeDataProvider;
+import com.cortex.core.usecase.http.CidadeCandidatoHttp;
+import com.cortex.dataprovider.EleicaoDataProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.io.IOException;
 import java.util.List;
 
 @Component
-public class LocalidadeUseCase {
+public class EleicaoUseCase {
 
-    private final LocalidadeDataProvider localidadeDataProvider;
+    private final EleicaoDataProvider localidadeDataProvider;
 
     @Autowired
-    public LocalidadeUseCase(final LocalidadeDataProvider localidadeDataProvider) {
+    public EleicaoUseCase(final EleicaoDataProvider localidadeDataProvider) {
         this.localidadeDataProvider = localidadeDataProvider;
     }
 
@@ -36,6 +36,10 @@ public class LocalidadeUseCase {
 
     public List<Object> listaMunicipiosPorMicrorregiao(String microrregiaoId) {
         return localidadeDataProvider.listaMunicipiosPorMicrorregiao(microrregiaoId);
+    }
+
+    public List<CidadeCandidatoHttp> cacheVotacaoPresidencial() throws IOException {
+        return localidadeDataProvider.cacheVotacaoPresidencial();
     }
 
 }

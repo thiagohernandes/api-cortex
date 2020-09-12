@@ -1,6 +1,6 @@
 package com.cortex.dataprovider.feign;
 
-import com.cortex.dataprovider.fallback.LocalidadeFallback;
+import com.cortex.dataprovider.fallback.EleicaoFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @FeignClient(value = "${feign.ibge.localidades.name}", url = "${feign.ibge.localidades.url}",
-             fallback = LocalidadeFallback.class)
-public interface LocalidadeFeign {
+             fallback = EleicaoFallback.class)
+public interface EleicaoFeign {
 
     @RequestMapping(method = RequestMethod.GET, value = "/regioes")
     List<Object> listaRegioes();
