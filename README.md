@@ -2,6 +2,8 @@
 
 A API contou com importação de dados de eleições presidenciais. Essas importações foram transformadas via serviços REST, gerando arquivos JSON para cruzamento de dados por meio da ferramenta Apache Drill.
 
+Logo após gerar os arquivos JSON para cruzamento de dados, o sistema importa as informações em modo de execução, salvando no H2.
+
 ```bash
 script utilizado no Apache Drill:
 
@@ -26,16 +28,23 @@ order by municipios.nome
 Após as transformações, foi utilizado o banco de dados em memória (H2) para armazenar as informações para emissão dos relatórios de votação.
 
 ## Considerações
-Os dados estavam em formato vetorial, e com posicionais complexas para a manipulação de dados.
+- os dados estavam em formato vetorial, e com posicionais complexas para a manipulação de dados;
+- as APIs estão protegidas pelo JWT - Webtokens;
 
 ## Instruções
 
 
 ```bash
 git clone https://github.com/thiagohernandes/api-cortex.git
-git checkout develop
 mvn clean package
 mvn spring-boot:run
+OBS: antes de realizar a chamada das APIs, deve-se realizar a geração do token (JWT) via: http://localhost:8081/login [POST] com o body:
+
+{
+    "username": "admin",
+    "password": "123"
+}
+
 ```
 
 ## Endpoints da API RESTful
@@ -43,11 +52,12 @@ OBS 1: O pipe para concatenação de parâmetros dever ser enviado como: %7C
 OBS 2: Para padronização de envio de parâmetros por endpoint, foram adotados códigos para os parâmetros: /{mesorregioes}/{microrregioes}
 
 ```bash
-[busca de parâmetros]
+[busca de parâmetros - níveis/subníveis]
 http://localhost:8081/api/ibge/regioes
-http://localhost:8081/api/ibge/regioes/2/estados
-http://localhost:8081/api/ibge/estados/MA/mesorregioes
-http://localhost:8081/api/ibge/mesorregioes/2101/microrregioes
+http://localhost:8081/api/ibge/regioes/{regiao-id}/estados
+http://localhost:8081/api/ibge/estados/{estado-sigla}/mesorregioes
+http://localhost:8081/api/ibge/mesorregioes/{mesorregiao-id}/microrregioes
+http://localhost:8081/api/ibge/mesorregioes/{mesorregiao-id}/microrregioes/{microrregiao-id}/municipios
 
 [votações]
 [geral]
