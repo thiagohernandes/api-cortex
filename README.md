@@ -2,6 +2,8 @@
 
 A API contou com importação de dados de eleições presidenciais. Essas importações foram transformadas via serviços REST, gerando arquivos JSON para cruzamento de dados por meio da ferramenta Apache Drill.
 
+Logo após gerar os arquivos JSON para cruzamento de dados, o sistema importa as informações em modo de execução, salvando no H2.
+
 ```bash
 script utilizado no Apache Drill:
 
