@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class EstadoHttp {
 
     private Integer id;
-    private char sigla;
+    private String sigla;
     private String nome;
     private RegiaoHttp regiao;
 

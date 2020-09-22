@@ -41,6 +41,11 @@ public class EleicaoFallback implements EleicaoFeign {
         return mensagemFallbak();
     }
 
+    public List<Object> listaMunicipios() {
+        log.warn(metodoRequisitado, "listaMunicipios()");
+        return mensagemFallbak();
+    }
+
     private final List<Object> mensagemFallbak() {
         return Arrays.asList(new FallbackHttp().builder()
                 .dataHora(LocalDateTime.now())

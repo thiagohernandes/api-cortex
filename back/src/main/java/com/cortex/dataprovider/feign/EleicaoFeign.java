@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-@FeignClient(value = "${feign.ibge.localidades.name}", url = "${feign.ibge.localidades.url}",
-             fallback = EleicaoFallback.class)
+@FeignClient(value = "${feign.ibge.localidades.name}", url = "${feign.ibge.localidades.url}", fallback = EleicaoFallback.class)
 public interface EleicaoFeign {
 
     @RequestMapping(method = RequestMethod.GET, value = "/regioes")
@@ -26,5 +25,8 @@ public interface EleicaoFeign {
 
     @RequestMapping(method = RequestMethod.GET, value = "/microrregioes/{microrregiao-id}/municipios")
     List<Object> listaMunicipiosPorMicrorregiao(@PathVariable("microrregiao-id") String microrregiaoId);
+
+    @RequestMapping(method = RequestMethod.GET, value = "/municipios")
+    List<Object> listaMunicipios();
 
 }
