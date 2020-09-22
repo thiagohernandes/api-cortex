@@ -58,11 +58,12 @@ http://localhost:8081/api/eleicao/2014/presidente/primeiro-turno/{regioes}
 
 [por regiões e ufs]
 http://localhost:8081/api/eleicao/2014/presidente/primeiro-turno/{regioes}/{ufs}
-/{regioes}/{ufs}/{mesorregioes}
+
+[por regiões, ufs e mesorregiões]
+http://localhost:8081/api/eleicao/2014/presidente/primeiro-turno/{regioes}/{ufs}/{mesorregioes}
 
 [por regiões, ufs, mesorregiões e microrregiões]
-http://localhost:8081/api/eleicao/2014/presidente/primeiro-turno/{regioes}/{ufs}
-/{regioes}/{ufs}/{mesorregioes}/{microrregioes}
+http://localhost:8081/api/eleicao/2014/presidente/primeiro-turno/{regioes}/{ufs}/{mesorregioes}/{microrregioes}
 
 ```
 
