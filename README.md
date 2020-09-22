@@ -50,11 +50,12 @@ OBS 1: O pipe para concatenação de parâmetros dever ser enviado como: %7C
 OBS 2: Para padronização de envio de parâmetros por endpoint, foram adotados códigos para os parâmetros: /{mesorregioes}/{microrregioes}
 
 ```bash
-[busca de parâmetros]
+[busca de parâmetros - níveis/subníveis]
 http://localhost:8081/api/ibge/regioes
-http://localhost:8081/api/ibge/regioes/2/estados
-http://localhost:8081/api/ibge/estados/MA/mesorregioes
-http://localhost:8081/api/ibge/mesorregioes/2101/microrregioes
+http://localhost:8081/api/ibge/regioes/{regiao-id}/estados
+http://localhost:8081/api/ibge/estados/{estado-sigla}/mesorregioes
+http://localhost:8081/api/ibge/mesorregioes/{mesorregiao-id}/microrregioes
+http://localhost:8081/api/ibge/mesorregioes/{mesorregiao-id}/microrregioes/{microrregiao-id}/municipios
 
 [votações]
 [geral]
