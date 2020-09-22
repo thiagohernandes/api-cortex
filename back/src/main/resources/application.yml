@@ -1,0 +1,40 @@
+server:
+  port: 8081
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:h2db
+    driverClassName: org.h2.Driver
+    username: thiago
+    password: 123
+  jpa:
+    database-plataform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+
+app:
+  api-url-eleicao:  /api/eleicao/2014/presidente/primeiro-turno
+  api-url-ibge: /api/ibge
+
+feign:
+  ibge:
+    localidades:
+      name: localidades
+      url: https://servicodados.ibge.gov.br/api/v1/localidades
+    malha:
+      name: malha
+      url: http://servicodados.ibge.gov.br/api/v2/malhas
+  hystrix:
+    enabled: true
