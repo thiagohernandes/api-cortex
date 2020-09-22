@@ -26,7 +26,8 @@ order by municipios.nome
 Após as transformações, foi utilizado o banco de dados em memória (H2) para armazenar as informações para emissão dos relatórios de votação.
 
 ## Considerações
-Os dados estavam em formato vetorial, e com posicionais complexas para a manipulação de dados.
+- os dados estavam em formato vetorial, e com posicionais complexas para a manipulação de dados;
+- as APIs estão protegidas pelo JWT - Webtokens;
 
 ## Instruções
 
@@ -36,6 +37,13 @@ git clone https://github.com/thiagohernandes/api-cortex.git
 git checkout develop
 mvn clean package
 mvn spring-boot:run
+OBS: antes de realizar a chamada das APIs, deve-se realizar a geração do token (JWT) via: http://localhost:8081/login [POST] com o body:
+
+{
+    "username": "admin",
+    "password": "123"
+}
+
 ```
 
 ## Endpoints da API RESTful
