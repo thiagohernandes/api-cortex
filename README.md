@@ -77,7 +77,8 @@ http://localhost:8081/api/eleicao/2014/presidente/primeiro-turno/{regioes}/{ufs}
 
 ```
 
-### Exemplos de chamada
+### Exemplo de chamada
 ```bash
+[por regiões, ufs, mesorregiões e microrregiões]
 http://localhost:8081/api/eleicao/2014/presidente/primeiro-turno/N/RO/1101/11001%7C11002
 ```
